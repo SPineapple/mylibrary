@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mylibrary/home/domain/book.dart';
 import 'package:mylibrary/home/infrastructure/data.dart';
+import 'dart:math';
 
 // Colors:
 //Primary: Pastel Orange (#fca311)
@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final int selectedBook = 0;
+  int selectedBook = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,27 +26,35 @@ class _HomePageState extends State<HomePage> {
           ),
           backgroundColor: Theme.of(context).colorScheme.secondary,
         ),
-        body: Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  books[selectedBook].title,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: 40,
+        body: InkWell(
+          onTap: () {
+            int randomIndex = Random().nextInt(books.length);
+            setState(() {
+              selectedBook = randomIndex;
+            });
+          },
+          child: Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    books[selectedBook].title,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                      fontSize: 25,
+                    ),
                   ),
-                ),
-                Text(
-                  "by ${books[selectedBook].author}",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Theme.of(context).colorScheme.primary,
+                  Text(
+                    "by ${books[selectedBook].author}",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-              ]),
+                ]),
+          ),
         ));
   }
 }
