@@ -1,3 +1,9 @@
 # mylibrary
 
-A new Flutter project.
+First Session:
+
+- Clean Archeticture
+- ThemeData
+- Classes
+- Presentation
+  - Home Page
