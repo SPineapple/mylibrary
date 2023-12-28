@@ -26,6 +26,13 @@ class _RandomPageState extends State<RandomPage> {
           ),
           backgroundColor: Theme.of(context).colorScheme.secondary,
         ),
+        bottomNavigationBar: const Padding(
+          padding: EdgeInsets.symmetric(vertical: 18.0),
+          child: Icon(
+            Icons.keyboard_double_arrow_up_outlined,
+            size: 50.0,
+          ),
+        ),
         body: InkWell(
           onTap: () {
             int randomIndex = Random().nextInt(books.length);
@@ -35,25 +42,26 @@ class _RandomPageState extends State<RandomPage> {
           },
           child: Center(
             child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    books[selectedBook].title,
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: 25,
-                    ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  books[selectedBook].title,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 25,
                   ),
-                  Text(
-                    "by ${books[selectedBook].author}",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                    textAlign: TextAlign.center,
+                ),
+                Text(
+                  "by ${books[selectedBook].author}",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
-                ]),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
         ));
   }
