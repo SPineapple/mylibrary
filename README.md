@@ -13,3 +13,10 @@ Second Session:
 - added List of books.
 - Convert to Stateful.
 - update state to get a Random title by index.
+
+Third Session:
+
+- Add new page (preparing to display the list of books).
+- Wrap PageView.
+- rename home_page.dart to random_page.dart
+- add home_page.dart
